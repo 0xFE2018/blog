@@ -38,11 +38,11 @@ archive_generator:
 widget:
     Tags: true
     Categories: true
-    Custom: false
+    Custom: true
 
 widget_custom:
     title: Slogan
-    content: <p>Because we can</p>
+    content: <p>Never Settle!</p>
 
 # ===========================================
 # Theme Settings
@@ -80,7 +80,7 @@ gitment:
 # Gitalk
 # Introduction: https://github.com/gitalk/gitalk
 gitalk:
-    enable: true
+    enable: false
     owner: gd4Ark # GitHub用户名
     repo: gd4Ark.github.io # 存储评论数据的GitHub仓库的仓库名
     client_id: ca4ae20760cf27ad5c6c # OAuth Application的Client ID

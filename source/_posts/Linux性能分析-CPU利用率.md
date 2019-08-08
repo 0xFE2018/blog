@@ -1,6 +1,18 @@
 ---
-abbrlink: '0'
+title: Linux性能分析-CPU利用率
+categories:
+  - Linux性能分析
+tags:
+  - Linux
+abbrlink: 5c3f484
+date: 2019-08-08 18:22:39
 ---
+<div class="excerpt">
+	Linux中，CPU使用率相关
+</div>
+
+<!-- more -->
+
 #proc文件系统
 - HZ：1秒钟内，时钟中断的次数，即1秒钟内，系统时钟的节拍次数
 - jiffies：全局变量，用来记录系统自启动以来产生的节拍总数
@@ -10,7 +22,7 @@ abbrlink: '0'
 ##什么是CPU利用率
 - 查看/proc/stat
 ```
-[root()@bjm6-198-26 ~]# cat /proc/stat |grep ^cpu
+[root()@ ~]# cat /proc/stat |grep ^cpu
 cpu  66821624 108828 167601995 5628625868 2469887 133770324 102589574 140271 0
 cpu0 30385305 87478 54557932 2974862558 1923358 162 9966684 33758 0
 cpu1 36436319 21349 113044063 2653763310 546529 133770162 92622890 106513 0
@@ -36,8 +48,8 @@ Cpu(s):  1.1%us,  2.7%sy,  0.0%ni, 92.2%id,  0.0%wa,  2.2%hi,  1.7%si,  0.0%st
 ```
 - pidstat
 ```
-[root()@bjm6-198-26 ~]# pidstat 1 1
-Linux 2.6.32-504.el6.x86_64 (bjm6-198-26.58os.org)      12/03/2018      _x86_64_        (2 CPU)
+[root()@ ~]# pidstat 1 1
+Linux 2.6.32-504.el6.x86_64 (.58os.org)      12/03/2018      _x86_64_        (2 CPU)
 
 08:50:09 PM       PID    %usr %system  %guest    %CPU   CPU  Command
 08:50:10 PM       798    0.96    8.65    0.00    9.62     1  pidstat
