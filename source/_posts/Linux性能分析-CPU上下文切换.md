@@ -11,15 +11,17 @@ tags:
 
 <!-- more -->
 
-##CPU上下文切换
+## CPU上下文切换
 - Linux是多任务操作系统，可以支持大于CPU个数的任务同时运行。这些任务并不是真正的同时运行在CPU上，而是在很短的时间内被CPU调度运行，给人一种同时运行的错觉。
 - **CPU上下文**：在CPU运行任务前，需要知道程序从哪里加在，从哪里开始运行。这依赖于两个值：**寄存器和PC程序计数器**。这是CPU运行任务前必须依赖的环境，被称为CPU上下文。
 - **CPU上下文切换**：把上一个任务的CPU上下文即寄存器和PC保存起来，然后加载新的任务的CPU上下文开始运行新的任务。这个动作叫做CPU的上下文切换。
-##CPU上下文切换的分类
+
+## CPU上下文切换的分类
 - 进程上下文切换
 - 线程上下文切换
 - 中断上下文切换
-###进程上下文切换
+
+### 进程上下文切换
 - Linux系统分成内核空间和用户空间。进程既可以在用户空间运行，此时为用户态，也可以在内核空间运行，此时为内核态。
     - 系统调用：从用户态到内核态的转变，需要系统调用。
     - 进程上下文切换：从一个进程到另一个进程的切换
@@ -34,24 +36,28 @@ tags:
     - sleep方法主动挂起进程
     - 优先级更高的进程
     - 硬件中断
-###线程上下文切换
+
+### 线程上下文切换
 - 线程和进程区别
     - 进程是资源分配的基本单位，线程是资源调度的基本单位
 - 线程上下文切换的内容
     - 前后两个线程属于同一个进程：因为虚拟内存共享，只需切换私有数据和寄存器等不共享的数据
     - 前后两个线程食欲同一个进程：通进程上下文切换
-###中断上下文切换
+
+### 中断上下文切换
 - 中断处理程序在打断程序时需要保存当前上下文信息，等中断返回时偶恢复上下文线程。
 - 同一个CPU，中断程序优先级更高，中断程序一般短小精悍。
-##查看CPU上下文切换
+
+## 查看CPU上下文切换
 - vmstat
     - 需要关注输出的4列内容：
         - cs(context switch) 表示每秒上下文切换的次数
         - in(interrupt)表示每秒中断次数
         - r(Running or Runnable)表示就绪队列的长度，也就是正在运行和等待CPU的进程数
         - b(Blocked)表示处于不可中断睡眠状态的进程数
+
 ```
-[root()@bjm6-198-26 ~]# vmstat 2 3
+[root()@ ~]# vmstat 2 3
 procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
  0  0      0 3002992 312684 2042960    0    0     1     9    0    0  1  7 92  0  0
@@ -60,8 +66,8 @@ procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----
 ```
 - pidstat -w 1 1
 ```
-[root()@bjm6-198-26 ~]# pidstat -w 1 1
-Linux 2.6.32-504.el6.x86_64 (bjm6-198-26.58os.org)      12/01/2018      _x86_64_        (2 CPU)
+[root()@ ~]# pidstat -w 1 1
+Linux 2.6.32-504.el6.x86_64 (.58os.org)      12/01/2018      _x86_64_        (2 CPU)
 
 09:02:11 PM       PID   cswch/s nvcswch/s Command
 09:02:12 PM         4     11.43      0.00  ksoftirqd/0
@@ -93,14 +99,14 @@ Average:        24944      2.86      0.00  tmux
         - cswch/s表示每秒**自愿上下文切换**的次数：进行无法获取所需的资源导致的上下文切换
         - nvcswch/s 表示每秒**非资源上下文切换**的次数：CPU时间分片已到，被系统强制进行的上下文切换
 
-###使用sysbench进行测试，观察上下文切换
+### 使用sysbench进行测试，观察上下文切换
 - 测试命令：
 ```
 sysbench --num-threads=10 --max-time=300 --max-requests=10000000 --test=threads run
 ```
 - vmstat 1 5 观察
 ```
-[root()@bjm6-198-26 ~]# vmstat 1 5
+[root()@ ~]# vmstat 1 5
 procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----
  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
  7  0      0 2997616 312692 2044824    0    0     1     9    0    0  1  7 92  0  0
@@ -135,7 +141,7 @@ Swap:  8191996k total,        0k used,  8191996k free,  2045276k cached
 ```
 - 查看/proc/interrupts
 ```
-[root()@bjm6-198-26 ~]# cat /proc/interrupts 
+[root()@ ~]# cat /proc/interrupts 
            CPU0       CPU1       
   0:        115          1   IO-APIC-edge      timer
   1:          1          6   IO-APIC-edge      i8042

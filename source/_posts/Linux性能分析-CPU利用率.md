@@ -13,13 +13,13 @@ date: 2019-08-08 18:22:39
 
 <!-- more -->
 
-#proc文件系统
+# proc文件系统
 - HZ：1秒钟内，时钟中断的次数，即1秒钟内，系统时钟的节拍次数
 - jiffies：全局变量，用来记录系统自启动以来产生的节拍总数
 - 系统运行时间（以秒为单位）：system_time=(jiffies)/HZ
 /proc是linux中一个虚拟的文件系统：文件系统包含了一些目录（用作组织信息的方式）和虚拟文件。虚拟文件可以向用户呈现内核中的一些信息，也可以用作一种从用户空间向内核发送信息的手段。
 
-##什么是CPU利用率
+## 什么是CPU利用率
 - 查看/proc/stat
 ```
 [root()@ ~]# cat /proc/stat |grep ^cpu
@@ -47,6 +47,7 @@ Cpu(s):  1.1%us,  2.7%sy,  0.0%ni, 92.2%id,  0.0%wa,  2.2%hi,  1.7%si,  0.0%st
 |st|作为虚拟机被运行的时间|
 ```
 - pidstat
+
 ```
 [root()@ ~]# pidstat 1 1
 Linux 2.6.32-504.el6.x86_64 (.58os.org)      12/03/2018      _x86_64_        (2 CPU)
@@ -61,19 +62,24 @@ Linux 2.6.32-504.el6.x86_64 (.58os.org)      12/03/2018      _x86_64_        (2 
 CPU使用率=1-空闲时间/总CPU时间
 根据这个公式，可用从/proc/stat中计算出**开机以来的CPU利用率**，一般没什么参考价值。
 所以，为了计算CPU利用率，性能工具实际计算CPU利用率的公式为：
+
 ```mathjax
 CPU利用率=1-\frac{空闲时间new-空闲时间old}{总CPU时间new-总CPU时间old}
 ```
+
 - 性能工具给出的都是一段间隔内的CPU使用率，所以要注意间隔时间大小的设置。
 - top工具默认的CPU使用率统计时间间隔为3s
-##如何查看CPU利用率
+
+## 如何查看CPU利用率
 - top
     - top显示了系统整体的CPU利用率，计算周期为3s
 - pidstat
     - pidstat显示了单个进程的CPU利用率
-##CPU使用率过高怎么办
+
+## CPU使用率过高怎么办
 - perf top
     - 类似top
+
 ```
 Samples: 91K of event 'cpu-clock', Event count (approx.): 3017560950                                                              
  27.33%  [kernel]                                [k] cp_start_xmit                                                                
