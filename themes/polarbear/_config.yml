@@ -42,7 +42,7 @@ widget:
 
 widget_custom:
     title: Slogan
-    content: <p>Never Settle!</p>
+    content: <p> Never Settle!</p> 
 
 # ===========================================
 # Theme Settings
@@ -58,7 +58,7 @@ theme:
 # ===========================================
 
 # Baidu Analytics
-baidu_analytics:
+baidu_analytics: 2659d3467dac85b4b1e845da970e33c6
 # Google Analytics
 google_analytics:
 
@@ -87,6 +87,15 @@ gitalk:
     client_secret: 671788fb8d6aed08906b70340a8ba3088ec03f39 # OAuth Application的Client Secret
     admin: ["gd4Ark"]
     distractionFreeMode: false
+
+# Back to top in sidebar
+b2t: true
+
+# Scroll percent label in b2t button
+scrollpercent: true
+
+jiathis: true
+
 # ===========================================
 # Version
 # ===========================================
