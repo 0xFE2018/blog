@@ -99,5 +99,8 @@ theme: polarbear
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/zhangquan04/zhangquan04.github.io
+  repo: 
+       github: https://github.com/zhangquan04/zhangquan04.github.io
+       0xfe: root@49.235.197.17:blog.git
   branch: master
+
