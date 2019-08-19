@@ -50,6 +50,7 @@
           <span>版权： </span>
           本站文章均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议，请勿用于商业，转载注明出处！
         </li>
+        <img src="/images/qrcode.jpg" width="110" height="110" />
       </ul>
 		{% if post.tags and post.tags.length %}
 		<div class="post-tags">
