@@ -14,9 +14,9 @@
 
     <span class="post-meta-divider">|</span>
     <span id="busuanzi_container_site_pv">
-        总访问量: <span id="busuanzi_value_site_pv"></span>次
+        总访问量: <span id="busuanzi_value_site_pv"></span>次 |
     </span>
     <span id="busuanzi_container_site_uv">
-        访客数<span id="busuanzi_value_site_uv"></span>人次
+        访客数<span id="busuanzi_value_site_uv"></span>人次 |<a href="http://beian.miit.gov.cn/">京ICP备19039702号</a>
     </span>
 </span>
