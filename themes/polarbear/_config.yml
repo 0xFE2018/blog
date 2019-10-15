@@ -12,7 +12,6 @@ favicon: /favicon.ico
 # false: disable
 # default: use `atom.xml`, generator for `hexo-generator-feed`
 rss: default
-
 # ===========================================
 # Menu Settings
 # ===========================================
@@ -39,6 +38,7 @@ widget:
     Tags: true
     Categories: true
     Custom: true
+    Music: true
 
 widget_custom:
     title: Slogan
@@ -66,20 +66,19 @@ google_analytics:
 duoshuo_shortname:
 # Disqus
 disqus_shortname:
-
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/
 gitment:
-    enable: false # gitment评论系统开关
-    owner: gd4Ark # GitHub用户名
-    repo: gd4Ark.github.io # 存储评论数据的GitHub仓库的仓库名
-    client_id: ca4ae20760cf27ad5c6c # OAuth Application的Client ID
-    client_secret: 671788fb8d6aed08906b70340a8ba3088ec03f39 # OAuth Application的Client Secret
+    enable: true # gitment评论系统开关
+    owner: zhangquan04 # GitHub用户名
+    repo: zhangquan04.github.io # 存储评论数据的GitHub仓库的仓库名
+    client_id: 4ef1f64b3a1a5a76b18e # OAuth Application的Client ID
+    client_secret: 9f700a26da1d123cd2231108d4210f1f0b2bc752 # OAuth Application的Client Secret
     lazy: false # 评论懒加载开关
 
 # Gitalk
 # Introduction: https://github.com/gitalk/gitalk
-gitalk:
+gittalk:
     enable: false
     owner: gd4Ark # GitHub用户名
     repo: gd4Ark.github.io # 存储评论数据的GitHub仓库的仓库名
@@ -88,12 +87,14 @@ gitalk:
     admin: ["gd4Ark"]
     distractionFreeMode: false
 
+local_search:
+  enable: true
+
 # Back to top in sidebar
 b2t: true
 
 # Scroll percent label in b2t button
 scrollpercent: true
-
 jiathis: true
 
 # ===========================================

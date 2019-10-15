@@ -6,6 +6,8 @@
     "version": "3.9.0"
   },
   "dependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.5.1",
     "hexo": "^3.7.0",
     "hexo-abbrlink": "^2.0.5",
     "hexo-asset-image": "git+https://github.com/7ym0n/hexo-asset-image.git",
@@ -15,13 +17,22 @@
     "hexo-generator-category": "^0.1.3",
     "hexo-generator-feed": "^1.2.2",
     "hexo-generator-index": "^0.2.1",
+    "hexo-generator-search": "^2.4.0",
+    "hexo-generator-searchdb": "^1.1.0",
     "hexo-generator-sitemap": "^1.2.0",
     "hexo-generator-tag": "^0.2.0",
+    "hexo-helper-live2d": "^3.1.1",
     "hexo-renderer-ejs": "^0.3.1",
     "hexo-renderer-marked": "^1.0.1",
     "hexo-renderer-scss": "^1.2.0",
     "hexo-renderer-stylus": "^0.3.3",
     "hexo-server": "^0.3.1",
-    "save": "^2.4.0"
+    "hexo-tag-aplayer": "^3.0.4",
+    "hexo-tag-dplayer": "^0.3.3",
+    "live2d-widget-model-wanko": "^1.0.5",
+    "mini-css-extract-plugin": "^0.8.0",
+    "save": "^2.4.0",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9"
   }
 }

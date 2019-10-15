@@ -1,7 +1,6 @@
 # Hexo Configuration
 ## Docs: https://hexo.io/docs/configuration.html
 ## Source: https://github.com/hexojs/hexo/
-
 # Site
 title: "0xFE"
 subtitle: "0xFE"
@@ -94,7 +93,26 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: polarbear
+# 小狗插件
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-wanko
+  display:
+    position: left
+    width: 75
+    height: 100
+  mobile:
+    show: true
 
+aplayer:
+  meting: true
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
@@ -104,3 +122,8 @@ deploy:
        0xfe: root@49.235.197.17:blog.git
   branch: master
 
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
